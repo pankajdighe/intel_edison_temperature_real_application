@@ -5,7 +5,7 @@ console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to r
 var analogPin0 = new mraa.Aio(1); //setup access analog inpuput pin 0
  //read the pin value as a float
 
-var topic1 = 'topic/GeneralizedIoT'+process.env.RESIN_DEVICE_UUID;
+
 
 
 periodicActivity(); //call the periodicActivity function
@@ -15,15 +15,19 @@ function periodicActivity()
 
 	var analogValueFloat = analogPin0.read();
 
-  console.log("Temperature Value "+analogValueFloat);
+ 
 
  const client =  mqtt.connect('mqtt://iot.eclipse.org', 1883, 60);
+
 
 var msg=""+analogValueFloat;
 console.log("Topi Formed is "+);
 
 client.on('connect', function () {
+
+	var topic1 = 'topic/GeneralizedIoT'+process.env.RESIN_DEVICE_UUID;
 	console.log("Connection Successful "+ topic1);
+	
 	client.publish(topic1,msg);
 });
 
