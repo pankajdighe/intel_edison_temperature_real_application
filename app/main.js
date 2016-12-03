@@ -20,9 +20,10 @@ function periodicActivity()
  const client =  mqtt.connect('mqtt://iot.eclipse.org', 1883, 60);
 
 var msg=""+analogValueFloat;
+console.log("Topi Formed is "+);
 
 client.on('connect', function () {
-	console.log("Connection Successful");
+	console.log("Connection Successful "+topic1);
 	client.publish(topic1,msg);
 });
 
