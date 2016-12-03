@@ -13,7 +13,7 @@ periodicActivity(); //call the periodicActivity function
 function periodicActivity()
 {
 
-	var analogValueFloat = analogPin0.readFloat();
+	var analogValueFloat = analogPin0.read();
 
   console.log("Temperature Value "+analogValueFloat);
 
