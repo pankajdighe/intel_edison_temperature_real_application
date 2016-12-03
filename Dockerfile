@@ -11,6 +11,9 @@ COPY package.json /usr/src/app/package.json
 WORKDIR /usr/src/app
 # install all npm (node.js) dependencies
 RUN npm install
+RUN npm install mqtt
+
+
 
 # Copy our node.js source code into /usr/src/app
 COPY app/ /usr/src/app
