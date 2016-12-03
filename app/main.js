@@ -24,7 +24,7 @@ var msg=""+analogValueFloat;
 
 client.on('connect', function () {
 
-	var topic1 = 'topic/GeneralizedIoT'+process.env.RESIN_DEVICE_UUID;
+	var topic1 = 'topic/GeneralizedIoT/'+process.env.RESIN_DEVICE_UUID;
 	console.log("Connection Successful "+ topic1);
 
 	client.publish(topic1,msg);
