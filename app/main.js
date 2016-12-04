@@ -13,14 +13,19 @@ periodicActivity(); //call the periodicActivity function
 function periodicActivity()
 {
 
-	var analogValueFloat = analogPin0.read();
+	var a = analogPin0.read();
 
- 
+	var B = 3975;
+
+ var resistance = (1023 - a) * 10000 / a; //get the resistance of the sensor;
+        console.log("Resistance: "+resistance);
+
+   var celsius_temperature = 1 / (Math.log(resistance / 10000) / B + 1 / 298.15) - 273.15;//convert to temperature via datasheet ;
 
  const client =  mqtt.connect('mqtt://iot.eclipse.org', 1883, 60);
 
 
-var msg=""+analogValueFloat;
+var msg=""+celsius_temperature;
 
 client.on('connect', function () {
 
